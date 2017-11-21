@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +27,7 @@ import com.open.ssm.service.UserService;
  *@author shen
  *@version v1.0
  */
-@RestController
+@Controller
 public class MainController {
 
 	private final static Logger LOG = Logger.getLogger(MainController.class);

@@ -33,12 +33,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         resolver.setSuffix(".jsp");
         return resolver;
     }
+	
+	
     
-	@Bean(initMethod = "init")
-    public BeetlGroupUtilConfiguration getBeetlGroupUtilConfiguration() {
-        BeetlGroupUtilConfiguration beetlGroupUtilConfiguration = new BeetlGroupUtilConfiguration();
-        return beetlGroupUtilConfiguration;
-    }
+//	@Bean(initMethod = "init")
+//    public BeetlGroupUtilConfiguration getBeetlGroupUtilConfiguration() {
+//        BeetlGroupUtilConfiguration beetlGroupUtilConfiguration = new BeetlGroupUtilConfiguration();
+//        return beetlGroupUtilConfiguration;
+//    }
 //    @Bean(name = "viewResolver")
 //    public BeetlSpringViewResolver getBeetlSpringViewResolver() {
 //        BeetlSpringViewResolver beetlSpringViewResolver = new BeetlSpringViewResolver();

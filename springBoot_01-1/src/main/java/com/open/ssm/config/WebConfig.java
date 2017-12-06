@@ -24,6 +24,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	
     /*@Bean
      * 原springMVC的jsp视图解析器*/
+	
 	@Bean
     public ViewResolver viewResolver(){
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();

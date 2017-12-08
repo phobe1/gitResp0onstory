@@ -32,6 +32,13 @@ public class IndexController {
 		return "ssm.html";
 	}
 	
+	@RequestMapping("/ssma")
+	public String ssma(Model model){
+		LOG.info("---视图测试---");
+		model.addAttribute("data", "很抱歉，只做了一点微小的工作。");
+		return "ssm";
+	}
+	
 	@RequestMapping("testForm")
 	public String testForm(MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException{
 		LOG.info("上传测试......");

@@ -1,0 +1,71 @@
+ CentOS下通过yum安装svn及配置
+
+1.环境
+centos5.5
+
+2.安装svn
+yum -y install subversion
+
+3.配置
+
+建立版本库目录
+mkdir /www/svndata
+
+svnserve -d -r /www/svndata
+
+4.建立版本库
+
+创建一个新的Subversion项目
+svnadmin create /www/svndata/oplinux
+
+配置允许用户rsync访问
+cd /www/svndata/oplinux/conf
+
+vi svnserve.conf
+anon-access=none
+auth-access=write
+password-db=passwd
+
+注：修改的文件前面不能有空格，否则启动svn server出错
+
+vi passwd
+[users]
+#<用户1> = <密码1>
+#<用户2> = <密码2>
+david=123456
+
+5.客户端连接
+svn co svn://ip/oplinux
+用户名密码:123456
+
+===============================================================
+
+6.实现SVN与WEB同步,可以CO一个出来,也可以直接配在仓库中
+
+1)设置WEB服务器根目录为/www/webroot
+
+2)checkout一份SVN
+
+svn co svn://localhost/oplinux /www/webroot
+
+修改权限为WEB用户
+
+chown -R apache:apache /www/webroot/oplinux
+
+3)建立同步脚本
+
+cd /www/svndata/oplinux/hooks/
+
+cp post-commit.tmpl post-commit
+
+编辑post-commit,在文件最后添加以下内容
+
+export LANG=en_US.UTF-8
+SVN=/usr/bin/svn
+WEB=/www/webroot/
+$SVN update $WEB –username rsync –password rsync
+chown -R apache:apache $WEB
+
+增加脚本执行权限
+
+chmod +x post-commit

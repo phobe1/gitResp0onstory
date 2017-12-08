@@ -9,8 +9,7 @@ import org.springframework.context.annotation.Import;
 /**
  *<p>Title: RootConfig.java</p>
  *<p>Description: 配置类，用于管理ContextLoadListener创建的上下文的bean</p>
- *<p>CreateDate: 2017年6月12日</p>
- *@author shen
+ 
  *@version v1.0
  */
 @Configuration

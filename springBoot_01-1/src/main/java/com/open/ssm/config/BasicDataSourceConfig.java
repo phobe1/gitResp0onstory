@@ -24,8 +24,6 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
 /**
  *<p>Title: DruidDataSourceConfig.java</p>
  *<p>Description: 数据源属性配置</p>
- *<p>CreateDate: 2017年6月12日</p>
- *@author shen
  *@version v1.0
  */
 @Configuration

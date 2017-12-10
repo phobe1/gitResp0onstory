@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bdqn.mapper.UserMapper">
+	<resultMap type="User" id="UserResult">
+		<!-- 数据库字段和实体类属性映射关系，名称一样的字段可以无需映射。column对应数据库的实际字段，property对应实体类的属性 -->
+		<result column="USER_id" property="userId" />
+		<result column="USER_CODE" property="userCode" />
+		<result column="USER_NAME" property="userName" />
+		<result column="USER_PWD" property="userPwd" />
+	</resultMap>
+	
+	<select id="findById" parameterType="int" resultMap="UserResult">
+		SELECT USER_ID,USER_CODE,USER_NAME,USER_PWD,MAIL,ADDR FROM BLOG_USER WHERE USER_ID =#{id}
+	</select>
+	
+	<select id="queryUserList" resultMap="UserResult">
+	    SELECT * FROM BLOG_USER
+	</select>
+	
+	<insert id="addUser" parameterType="user">
+	    INSERT INTO BLOG_USER 
+	    <set>
+	      <if test="userCode !=null and userCode !=''">
+	        USER_CODE=#{userCode},
+	      </if>
+	      <if test="userName !=null and userName !=''">
+	        USER_NAME=#{userName},
+	      </if>
+	      <if test="userPwd !=null and userPwd !=''">
+	        USER_PWD=#{userPwd},
+	      </if>
+	      <if test="addr !=null and addr !=''">
+	        ADDR=#{addr},
+	      </if>
+	      <if test="mail !=null and mail !=''">
+	        MAIL=#{mail},
+	      </if>
+	      <if test="createDate !=null">
+	        CREATE_DATE=#{createDate},
+	      </if>
+	    </set>
+	    
+	    
+	</insert>
+	
+	<delete id="deleteUser" parameterType="int">
+         delete from  BLOG_USER WHERE  USER_ID =#{id}
+	</delete>
+	
+	<update id="updateUser" parameterType="user">
+	    update BLOG_USER 
+	     <set>
+	      <if test="userCode !=null and userCode !=''">
+	        USER_CODE=#{userCode},
+	      </if>
+	      <if test="userName !=null and userName !=''">
+	        USER_NAME=#{userName},
+	      </if>
+	      <if test="userPwd !=null and userPwd !=''">
+	        USER_PWD=#{userPwd},
+	      </if>
+	      <if test="addr !=null and addr !=''">
+	        ADDR=#{addr},
+	      </if>
+	      <if test="mail !=null and mail !=''">
+	        MAIL=#{mail},
+	      </if>
+	      <if test="createDate !=null">
+	        CREATE_DATE=#{createDate},
+	      </if>
+	    </set>
+	    WHERE USER_ID = #{userId}
+	</update>
+	
+	<select id="queryUserByUserCode" resultMap="UserResult" parameterType="String">
+	    SELECT USER_CODE FROM BLOG_USER WHERE USER_CODE = #{userCode}
+	</select>
+	
+</mapper>

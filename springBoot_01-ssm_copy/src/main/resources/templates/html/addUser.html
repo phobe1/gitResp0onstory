@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>html/addUser</title>
+<script type="text/javascript" th:src="@{js/jquery-1.8.0.min.js}"></script>
+<script type="text/javascript" th:src="@{js/login.js}"></script>
+</head>
+</head>
+<body>
+<!--  简单表示式:
+s
+变量表达式: ${…}
+选择变量表达式: *{…}
+信息表达式: #{…}
+URL连接表达式: @{…}
+文字类型：
+
+字符型: ‘one text’ , ‘Another one!’ ,…
+数值型: 0 , 34 , 3.0 , 12.3 ,…
+Boolean型: true , false
+空值: null
+文本字符串: one , sometext , main ,…
+字符串操作: 
+字符串连接: +
+文字替换: |The name is ${name}|
+数值型操作: 
+运算符: + , - , * , / , %
+负号: -
+Boolean操作: 
+运算符: and , or
+非运算符: ! , not
+比较相等算法: 
+比较: > , < , >= , <= ( gt , lt , ge , le )
+相等算法: == , != ( eq , ne )
+条件语句:
+
+If-then: (if) ? (then)
+If-then-else: (if) ? (then) : (else)
+Default: (value) ?: (defaultvalue)-->
+	<div align="center">
+	  <form action="/addUser" th:action="@{/addUser}" th:object="${user}" method="post">
+	    <p>用户编号：<input th:field="*{userCode}"/><spa>*</span></p>
+	    <p>用户姓名：<input th:field="*{userName}"/></p>
+	    <p>用户密码：<input th:field="*{userPwd}"/></p>
+	    <p>用户地址：<input th:field="*{addr}"/></p>
+	    <p>用户邮箱：<input th:field="*{mail}"/></p>
+	    <input type="submit"  value="新增用户"/> 
+	  </form>
+	
+	</div>
+</body>
+</html>

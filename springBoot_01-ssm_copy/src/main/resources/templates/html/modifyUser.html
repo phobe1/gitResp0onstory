@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>html/modify</title>
+</head>
+<body>
+	<div align="center">
+	  <form action="/modifyUser" th:action="@{/modifyUser}" th:object="${user}" method="post">
+	     <input type="hidden" th:field="*{userId}"/>
+	    <p>用户编号：<input th:field="*{userCode}"/></p>
+	    <p>用户姓名：<input th:field="*{userName}"/></p>
+	    <p>用户密码：<input th:field="*{userPwd}"/></p>
+	    <p>用户地址：<input th:field="*{addr}"/></p>
+	    <p>用户邮箱：<input th:field="*{mail}"/></p>
+	    <input type="submit"  value="修改用户"/> 
+	  </form>
+	
+	</div>
+
+</body>
+</html>

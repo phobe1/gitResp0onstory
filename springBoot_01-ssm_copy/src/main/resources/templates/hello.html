@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 路径 -->
+<p th:text="'Hello12121！, ' + ${name} + '!'" >3333</p>
+<!-- <a th:href="@{http://localhost:8080/main}">绝对路径</a>
+<a th:href="@{/}">相对路径</a>
+<a th:href="@{css/bootstrap.min.css}">Content路径,默认访问static下的css文件夹</a>
+<br/>
+字符串替换 
+<span th:text="'Welcome to our application, ' + ${name} + '!'">121Welecome to our application,1213,Welcomee to our application,1214</span><br/>
+<span th:text="|Welcome to our application, ${name}!|"></span>
+
+<p th:if="${count} &gt; 1">hello</p>
+   <p th:text="'Execution mode is ' + ( (${execMode} == 'dev')? 'Development' : 'Production')"></p>
+   
+  默认属性default可以用*表示
+ <div th:switch="${role}">
+  <p th:case="'admin'">User is an administrator</p>
+  <p th:case="*">User is a manager</p>
+</div>
+ 
+
+    <table>
+      <tr>
+         <th>userId</th>
+         <th>userName</th>
+         <th>userCode</th>
+      
+      </tr>
+       <tr th:each="user : ${users} ">
+         <td th:text="${user.userId}">userId</td>
+         <td th:text="${user.userName}">userName</td>
+         <td th:text="${user.userCode}">userCode</td>
+       </tr>
+        </table> 
+        
+      <p th:if="${#strings.isEmpty(users)}">
+      hello!
+      </p>  
+      
+        <p th:unless="${#strings.isEmpty(users)}">
+      hello!unless
+      </p>  -->
+      
+    
+        
+  
+</body>
+
+
+</html>

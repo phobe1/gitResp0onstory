@@ -747,3 +747,150 @@ javax.management.InstanceNotFoundException: org.apache.commons.dbcp2:name=dataSo
 	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1008) [spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
 	at org.springframework.context.support.AbstractApplicationContext$2.run(AbstractApplicationContext.java:929) [spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
 
+2017-12-10 19:34:04.329  INFO 1696 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:34:04 CST 2017]; root of context hierarchy
+2017-12-10 19:34:04.837  INFO 1696 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2017-12-10 19:34:05.535  INFO 1696 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-12-10 19:34:05.548  INFO 1696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-12-10 19:34:05.550  INFO 1696 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-12-10 19:34:05.649  INFO 1696 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-12-10 19:34:05.650  INFO 1696 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1324 ms
+2017-12-10 19:34:05.798  INFO 1696 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-12-10 19:34:05.801  INFO 1696 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-12-10 19:34:05.802  INFO 1696 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-12-10 19:34:05.802  INFO 1696 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-12-10 19:34:05.802  INFO 1696 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-12-10 19:34:06.249  INFO 1696 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [sql/schema.sql]
+2017-12-10 19:34:06.266  INFO 1696 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [sql/schema.sql] in 16 ms.
+2017-12-10 19:34:06.267  INFO 1696 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [sql/data.sql]
+2017-12-10 19:34:06.273  INFO 1696 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [sql/data.sql] in 5 ms.
+2017-12-10 19:34:06.790  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:34:04 CST 2017]; root of context hierarchy
+2017-12-10 19:34:06.854  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/hello]}" onto public java.lang.String com.bdqn.controller.DemoController.main(org.springframework.ui.Model)
+2017-12-10 19:34:06.855  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUser]}" onto public java.lang.String com.bdqn.controller.DemoController.addUser(com.bdqn.model.User)
+2017-12-10 19:34:06.856  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/userList]}" onto public java.lang.String com.bdqn.controller.DemoController.queryUserList(org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2017-12-10 19:34:06.856  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUserhtml]}" onto public java.lang.String com.bdqn.controller.DemoController.addUserhtml(com.bdqn.model.User)
+2017-12-10 19:34:06.856  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteUser/{id}]}" onto public java.lang.String com.bdqn.controller.DemoController.deleteUser(int)
+2017-12-10 19:34:06.856  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/findUserById/{id}],methods=[GET]}" onto public java.lang.String com.bdqn.controller.DemoController.findUserById(int,org.springframework.ui.Model)
+2017-12-10 19:34:06.857  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/modifyUser]}" onto public java.lang.String com.bdqn.controller.DemoController.modifyUser(com.bdqn.model.User)
+2017-12-10 19:34:06.857  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/queryUserByUserCode]}" onto public java.util.Map com.bdqn.controller.DemoController.queryUserByUserCode(java.lang.String)
+2017-12-10 19:34:06.858  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/main]}" onto public java.lang.String com.bdqn.controller.UserController.main(org.springframework.ui.Model)
+2017-12-10 19:34:06.858  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fid]}" onto public com.bdqn.model.User com.bdqn.controller.UserController.findUserById()
+2017-12-10 19:34:06.861  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-12-10 19:34:06.861  INFO 1696 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-12-10 19:34:06.887  INFO 1696 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:34:06.887  INFO 1696 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:34:06.920  INFO 1696 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:34:06.964  WARN 1696 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2017-12-10 19:34:07.386  INFO 1696 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-12-10 19:34:07.453  INFO 1696 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-12-10 19:35:44.354  INFO 1696 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-12-10 19:35:44.354  INFO 1696 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-12-10 19:35:44.370  INFO 1696 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2017-12-10 19:35:44.461 DEBUG 1696 --- [http-nio-8080-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : ==>  Preparing: SELECT * FROM BLOG_USER 
+2017-12-10 19:35:44.480 DEBUG 1696 --- [http-nio-8080-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : ==> Parameters: 
+2017-12-10 19:35:44.499 DEBUG 1696 --- [http-nio-8080-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : <==      Total: 7
+2017-12-10 19:35:48.802 DEBUG 1696 --- [http-nio-8080-exec-2] c.bdqn.mapper.UserMapper.queryUserList   : ==>  Preparing: SELECT * FROM BLOG_USER 
+2017-12-10 19:35:48.802 DEBUG 1696 --- [http-nio-8080-exec-2] c.bdqn.mapper.UserMapper.queryUserList   : ==> Parameters: 
+2017-12-10 19:35:48.804 DEBUG 1696 --- [http-nio-8080-exec-2] c.bdqn.mapper.UserMapper.queryUserList   : <==      Total: 7
+2017-12-10 19:36:32.202 DEBUG 1696 --- [http-nio-8080-exec-4] c.bdqn.mapper.UserMapper.queryUserList   : ==>  Preparing: SELECT * FROM BLOG_USER 
+2017-12-10 19:36:32.202 DEBUG 1696 --- [http-nio-8080-exec-4] c.bdqn.mapper.UserMapper.queryUserList   : ==> Parameters: 
+2017-12-10 19:36:32.204 DEBUG 1696 --- [http-nio-8080-exec-4] c.bdqn.mapper.UserMapper.queryUserList   : <==      Total: 7
+2017-12-10 19:37:53.677  INFO 1696 --- [Thread-4] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:34:04 CST 2017]; root of context hierarchy
+2017-12-10 19:37:53.679  INFO 1696 --- [Thread-4] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2017-12-10 19:38:07.388  INFO 1719 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:38:07 CST 2017]; root of context hierarchy
+2017-12-10 19:38:07.899  INFO 1719 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2017-12-10 19:38:08.713  INFO 1719 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8081 (http)
+2017-12-10 19:38:08.729  INFO 1719 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-12-10 19:38:08.731  INFO 1719 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-12-10 19:38:08.847  INFO 1719 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-12-10 19:38:08.847  INFO 1719 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1463 ms
+2017-12-10 19:38:08.998  INFO 1719 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-12-10 19:38:09.002  INFO 1719 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-12-10 19:38:09.002  INFO 1719 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-12-10 19:38:09.002  INFO 1719 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-12-10 19:38:09.003  INFO 1719 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-12-10 19:38:09.423  INFO 1719 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [sql/schema.sql]
+2017-12-10 19:38:09.442  INFO 1719 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [sql/schema.sql] in 18 ms.
+2017-12-10 19:38:09.444  INFO 1719 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [sql/data.sql]
+2017-12-10 19:38:09.453  INFO 1719 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [sql/data.sql] in 9 ms.
+2017-12-10 19:38:10.029  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:38:07 CST 2017]; root of context hierarchy
+2017-12-10 19:38:10.094  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/hello]}" onto public java.lang.String com.bdqn.controller.DemoController.main(org.springframework.ui.Model)
+2017-12-10 19:38:10.095  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUser]}" onto public java.lang.String com.bdqn.controller.DemoController.addUser(com.bdqn.model.User)
+2017-12-10 19:38:10.095  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/userList]}" onto public java.lang.String com.bdqn.controller.DemoController.queryUserList(org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2017-12-10 19:38:10.095  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUserhtml]}" onto public java.lang.String com.bdqn.controller.DemoController.addUserhtml(com.bdqn.model.User)
+2017-12-10 19:38:10.096  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteUser/{id}]}" onto public java.lang.String com.bdqn.controller.DemoController.deleteUser(int)
+2017-12-10 19:38:10.096  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/findUserById/{id}],methods=[GET]}" onto public java.lang.String com.bdqn.controller.DemoController.findUserById(int,org.springframework.ui.Model)
+2017-12-10 19:38:10.096  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/modifyUser]}" onto public java.lang.String com.bdqn.controller.DemoController.modifyUser(com.bdqn.model.User)
+2017-12-10 19:38:10.097  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/queryUserByUserCode]}" onto public java.util.Map com.bdqn.controller.DemoController.queryUserByUserCode(java.lang.String)
+2017-12-10 19:38:10.097  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/main]}" onto public java.lang.String com.bdqn.controller.UserController.main(org.springframework.ui.Model)
+2017-12-10 19:38:10.097  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fid]}" onto public com.bdqn.model.User com.bdqn.controller.UserController.findUserById()
+2017-12-10 19:38:10.100  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-12-10 19:38:10.100  INFO 1719 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-12-10 19:38:10.127  INFO 1719 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:38:10.128  INFO 1719 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:38:10.175  INFO 1719 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:38:10.216  WARN 1719 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2017-12-10 19:38:10.710  INFO 1719 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-12-10 19:38:10.775  INFO 1719 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
+2017-12-10 19:38:29.511  INFO 1719 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-12-10 19:38:29.511  INFO 1719 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-12-10 19:38:29.525  INFO 1719 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2017-12-10 19:38:29.613 DEBUG 1719 --- [http-nio-8081-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : ==>  Preparing: SELECT * FROM BLOG_USER 
+2017-12-10 19:38:29.635 DEBUG 1719 --- [http-nio-8081-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : ==> Parameters: 
+2017-12-10 19:38:29.656 DEBUG 1719 --- [http-nio-8081-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : <==      Total: 7
+2017-12-10 19:39:20.751  INFO 1719 --- [Thread-4] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:38:07 CST 2017]; root of context hierarchy
+2017-12-10 19:39:20.753  INFO 1719 --- [Thread-4] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2017-12-10 19:39:46.054  INFO 1732 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:39:46 CST 2017]; root of context hierarchy
+2017-12-10 19:39:46.556  INFO 1732 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp2; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp2.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2017-12-10 19:39:47.241  INFO 1732 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8081 (http)
+2017-12-10 19:39:47.254  INFO 1732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-12-10 19:39:47.256  INFO 1732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-12-10 19:39:47.360  INFO 1732 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-12-10 19:39:47.361  INFO 1732 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1310 ms
+2017-12-10 19:39:47.516  INFO 1732 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-12-10 19:39:47.519  INFO 1732 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-12-10 19:39:47.520  INFO 1732 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-12-10 19:39:47.520  INFO 1732 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-12-10 19:39:47.520  INFO 1732 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-12-10 19:39:47.872  INFO 1732 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [sql/schema.sql]
+2017-12-10 19:39:47.888  INFO 1732 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [sql/schema.sql] in 16 ms.
+2017-12-10 19:39:47.889  INFO 1732 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [sql/data.sql]
+2017-12-10 19:39:47.896  INFO 1732 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [sql/data.sql] in 6 ms.
+2017-12-10 19:39:48.414  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:39:46 CST 2017]; root of context hierarchy
+2017-12-10 19:39:48.479  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/hello]}" onto public java.lang.String com.bdqn.controller.DemoController.main(org.springframework.ui.Model)
+2017-12-10 19:39:48.480  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUser]}" onto public java.lang.String com.bdqn.controller.DemoController.addUser(com.bdqn.model.User)
+2017-12-10 19:39:48.481  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/userList]}" onto public java.lang.String com.bdqn.controller.DemoController.queryUserList(org.springframework.ui.Model,javax.servlet.http.HttpSession)
+2017-12-10 19:39:48.481  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUserhtml]}" onto public java.lang.String com.bdqn.controller.DemoController.addUserhtml(com.bdqn.model.User)
+2017-12-10 19:39:48.482  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteUser/{id}]}" onto public java.lang.String com.bdqn.controller.DemoController.deleteUser(int)
+2017-12-10 19:39:48.482  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/findUserById/{id}],methods=[GET]}" onto public java.lang.String com.bdqn.controller.DemoController.findUserById(int,org.springframework.ui.Model)
+2017-12-10 19:39:48.482  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/modifyUser]}" onto public java.lang.String com.bdqn.controller.DemoController.modifyUser(com.bdqn.model.User)
+2017-12-10 19:39:48.482  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/queryUserByUserCode]}" onto public java.util.Map com.bdqn.controller.DemoController.queryUserByUserCode(java.lang.String)
+2017-12-10 19:39:48.483  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/main]}" onto public java.lang.String com.bdqn.controller.UserController.main(org.springframework.ui.Model)
+2017-12-10 19:39:48.483  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fid]}" onto public com.bdqn.model.User com.bdqn.controller.UserController.findUserById()
+2017-12-10 19:39:48.486  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-12-10 19:39:48.486  INFO 1732 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-12-10 19:39:48.514  INFO 1732 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:39:48.514  INFO 1732 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:39:48.559  INFO 1732 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 19:39:48.598  WARN 1732 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2017-12-10 19:39:49.034  INFO 1732 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-12-10 19:39:49.101  INFO 1732 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
+2017-12-10 19:39:59.847  INFO 1732 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-12-10 19:39:59.847  INFO 1732 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-12-10 19:39:59.863  INFO 1732 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2017-12-10 19:39:59.948 DEBUG 1732 --- [http-nio-8081-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : ==>  Preparing: SELECT * FROM BLOG_USER 
+2017-12-10 19:39:59.970 DEBUG 1732 --- [http-nio-8081-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : ==> Parameters: 
+2017-12-10 19:39:59.992 DEBUG 1732 --- [http-nio-8081-exec-1] c.bdqn.mapper.UserMapper.queryUserList   : <==      Total: 7
+2017-12-10 19:40:02.270 DEBUG 1732 --- [http-nio-8081-exec-2] c.bdqn.mapper.UserMapper.queryUserList   : ==>  Preparing: SELECT * FROM BLOG_USER 
+2017-12-10 19:40:02.270 DEBUG 1732 --- [http-nio-8081-exec-2] c.bdqn.mapper.UserMapper.queryUserList   : ==> Parameters: 
+2017-12-10 19:40:02.272 DEBUG 1732 --- [http-nio-8081-exec-2] c.bdqn.mapper.UserMapper.queryUserList   : <==      Total: 7
+2017-12-10 19:40:37.194 DEBUG 1732 --- [http-nio-8081-exec-5] com.bdqn.mapper.UserMapper.deleteUser    : ==>  Preparing: delete from BLOG_USER WHERE USER_ID =? 
+2017-12-10 19:40:37.197 DEBUG 1732 --- [http-nio-8081-exec-5] com.bdqn.mapper.UserMapper.deleteUser    : ==> Parameters: 16(Integer)
+2017-12-10 19:40:37.198 DEBUG 1732 --- [http-nio-8081-exec-5] com.bdqn.mapper.UserMapper.deleteUser    : <==    Updates: 1
+2017-12-10 19:40:37.207 DEBUG 1732 --- [http-nio-8081-exec-7] c.bdqn.mapper.UserMapper.queryUserList   : ==>  Preparing: SELECT * FROM BLOG_USER 
+2017-12-10 19:40:37.207 DEBUG 1732 --- [http-nio-8081-exec-7] c.bdqn.mapper.UserMapper.queryUserList   : ==> Parameters: 
+2017-12-10 19:40:37.210 DEBUG 1732 --- [http-nio-8081-exec-7] c.bdqn.mapper.UserMapper.queryUserList   : <==      Total: 6
+2017-12-10 19:40:45.691 DEBUG 1732 --- [http-nio-8081-exec-8] c.bdqn.mapper.UserMapper.queryUserList   : ==>  Preparing: SELECT * FROM BLOG_USER 
+2017-12-10 19:40:45.691 DEBUG 1732 --- [http-nio-8081-exec-8] c.bdqn.mapper.UserMapper.queryUserList   : ==> Parameters: 
+2017-12-10 19:40:45.693 DEBUG 1732 --- [http-nio-8081-exec-8] c.bdqn.mapper.UserMapper.queryUserList   : <==      Total: 6
+2017-12-10 19:43:44.940  INFO 1732 --- [Thread-4] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62e136d3: startup date [Sun Dec 10 19:39:46 CST 2017]; root of context hierarchy
+2017-12-10 19:43:44.942  INFO 1732 --- [Thread-4] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown

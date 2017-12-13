@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>用户信息列表</title>
+</head>
+<body>
+	<div align="center">
+		<h1>用户信息列表</h1>
+		<a href="addUser" th:href="@{/addUser}">新增用户</a>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>用户编号</th>
+					<th>用户姓名</th>
+					<th>用户邮箱</th>
+					<th>用户地址</th>
+					<th>操作</th>
+					<th>状态变量：index</th>
+					<th>状态变量：count</th>
+					<th>状态变量：size</th>
+					<th>状态变量：current.userName</th>
+					<th>状态变量：even</th>
+					<th>状态变量：odd</th>
+					<th>状态变量：first</th>
+					<th>状态变量：last</th>
+				</tr>
+			</thead>
+			<tbody th:unless="${#lists.isEmpty(userList)}">
+				<tr th:each="user:${userList}">
+					<td th:text="${user.userCode}">userCode</td>
+					<td th:text="${user.userName}">userName</td>
+					<td th:text="${user.mail}">mail</td>
+					<td th:text="${user.addr}">addr</td>
+					<td><a href="'/updateUser/'+${user.userId}" th:href="@{'/updateUser/'+${user.userId}}">修改</a> 
+					<a href="'/deleteUserById/'+${user.userId}" th:href="@{'/deleteUserById/'+${user.userId}}">删除</a>
+					</td>
+					<th th:text="${userStat.index}">状态变量：index</th>
+					<th th:text="${userStat.count}">状态变量：count</th>
+					<th th:text="${userStat.size}">状态变量：size</th>
+					<th th:text="${userStat.current.userName}">状态变量：current</th>
+					<th th:text="${userStat.even}">状态变量：even****</th>
+					<th th:text="${userStat.odd}">状态变量：odd</th>
+					<th th:text="${userStat.first}">状态变量：first</th>
+					<th th:text="${userStat.last}">状态变量：last</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

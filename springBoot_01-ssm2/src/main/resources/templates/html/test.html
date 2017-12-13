@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>html/test</title>
+</head>
+<body>
+	<span th:text="'hello,test!----->'+${name}">name</span>
+	<p th:if="${count} ==8" th:text="${count}">count</p>
+	<p th:unless="${count} &gt; 1">unless ==1</p>
+	<ul th:switch="${role2}">
+		<li th:case="'admin'">admintrastor</li>
+		<li th:case="'dev'">devloper</li>
+		<li th:case="*" th:text="${role2}"></li>
+	</ul>
+
+	<div th:unless="${#lists.isEmpty(users)}">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>userId</th>
+					<th>userCode</th>
+					<th>userName</th>
+				</tr>
+
+				
+			</thead>
+			<tbody>
+			   <tr th:each="user : ${users}">
+					<td th:text="${user.userId}"></td>
+					<td th:text="${user.userCode}"></td>
+					<td th:text="${user.userName}"></td>
+				</tr>
+			
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>

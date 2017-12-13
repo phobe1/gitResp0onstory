@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bdqn.mapper.UserMapper">
+	<resultMap type="User" id="UserResult">
+		<!-- 数据库字段和实体类属性映射关系，名称一样的字段可以无需映射。column对应数据库的实际字段，property对应实体类的属性 -->
+		<result column="USER_id" property="userId" />
+		<result column="USER_CODE" property="userCode" />
+		<result column="USER_NAME" property="userName" />
+		<result column="USER_PWD" property="userPwd" />
+	</resultMap>
+	
+	<select id="findById" parameterType="int" resultMap="UserResult">
+		SELECT user_id,USER_CODE,USER_NAME,USER_PWD,MAIL,addr FROM BLOG_USER WHERE USER_ID =#{id}
+	</select>
+	<select id="queryUserList" resultMap="UserResult">
+	    SELECT * FROM BLOG_USER ORDER BY USER_ID ASC
+	</select>
+	
+	<insert id="addUser" parameterType="user">
+	  insert into BLOG_USER(user_code,user_name,user_pwd,mail,addr,create_date)
+	  values(#{userCode},#{userName},#{userPwd},#{mail},#{addr},#{createDate}) 
+	</insert>
+	
+	<update id="updateUser" parameterType="user">
+	 update BLOG_USER 
+	   <set>
+	     <if test="userCode !=null and userCode !=''">
+	        user_code = #{userCode},
+	     </if>
+	     <if test="userName !=null and userName !=''">
+	        user_name = #{userName},
+	     </if>
+	     <if test="userPwd !=null and userPwd !=''">
+	        user_pwd = #{userPwd},
+	     </if>
+	     <if test="mail !=null and mail !=''">
+	        mail = #{mail},
+	     </if>
+	     <if test="addr !=null and addr !=''">
+	        addr = #{addr},
+	     </if>
+	   </set>
+	   where user_id = #{userId}
+	</update>
+	
+	<delete id="deleteUserById" parameterType="int">
+	  delete  from BLOG_USER 
+	  where user_id = #{userId}
+	</delete>
+	
+</mapper>

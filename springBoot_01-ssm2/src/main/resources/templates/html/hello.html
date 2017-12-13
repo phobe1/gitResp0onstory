@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>html/hello</title>
+</head>
+<body>
+	<p th:text="${name}">123</p>
+	<h1 th:text="${count}">hello!World</h1>
+	<a th:href="@{/fid}">fid</a>
+	<!-- 判断 -->
+	<p th:if="${count} &gt; 1">hello</p>
+	<p th:unless="${count} == 1">hello,unless</p>
+	
+	<p th:text="${#strings.isEmpty(aaa)}"></p>
+
+	<p
+		th:text="'Execution mode is ' + ( (${aaa} == 'dev')? 'Development' : 'Production')"></p>
+
+	<div th:switch="${role}">
+		<p th:case="'admin'">欢迎你，admin</p>
+		<p th:case="'developer'">欢迎你，developer</p>
+		<p th:case="*" th:text="'欢迎你'+${role}">欢迎你，xxx</p>
+	</div>
+	
+	
+	<table border="1px">
+	  <tr>
+	    <td>userId</td>
+	    <td>userCode</td>
+	    <td>userName</td>
+	  </tr>
+	  <tr  th:each="user :${users}">
+	    <td th:text="${user.userId}"></td>
+	    <td th:text="${user.userCode}"></td>
+	    <td th:text="${user.userName}"></td>
+	  </tr>
+	
+	</table>
+</body>
+</html>

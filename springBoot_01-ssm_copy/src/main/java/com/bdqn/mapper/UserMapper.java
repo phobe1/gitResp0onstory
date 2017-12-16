@@ -28,7 +28,8 @@ public interface UserMapper {
    @Transactional(propagation=Propagation.REQUIRED)
    public int addUser(User user);
    
-   @CacheEvict(value="user", beforeInvocation=true)
+   
+   @CacheEvict(value="user", beforeInvocation=true,keyGenerator="redisKeyGenerator")
    @Transactional(propagation=Propagation.REQUIRED)
    public void deleteUser(@Param("id")int id);
    

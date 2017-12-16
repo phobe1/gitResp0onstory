@@ -48,6 +48,7 @@ public class DemoController {
 
 	@RequestMapping("userList")
 	public String queryUserList(Model model,HttpSession session) {
+		
 		model.addAttribute("userList", userMapper.queryUserList());
 		session.setAttribute("aaa", "aaa,hello");
 		return "userlist";

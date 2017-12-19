@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+   $(document).ready(function(){ 
+	   $("#head").load("inc/head.html"); 
+	   $("#foot").load("inc/foot.html"); 
+	});
+
+</script>
+</head>
+<body>
+  <div id="head"></div>
+  <div class="mbxnav">
+	<a href="/main.action" th:href="@{/main.action}">代理商管理</a> \ <a href="/main.action" th:href="@{/main.action}">当前账户信息</a>
+</div>
+<div class="container">
+
+<div class="userInfo">
+	<ul>
+		<li><b>您好，<span th:text="${session.currentUser.userName}"></span>!</b> 您上次登录时间 <span th:text="${#dates.format(currentUser.lastLoginTime, 'yyyy-MM-dd HH:mm:ss')}"></span></li>
+		<li>
+		您当前账户余额：
+		<span th:if="${#strings.isEmpty(account)}">对不起，您还没有开启账户，或者您的账户的资金出现了问题，请联系系统管理员进行处理。</span>
+		<span th:unless="${#strings.isEmpty(account)}" th:text="${'¥'+account.money}"></span>
+	<a href="/accountdetail.action" th:href="${/accountdetail.action}">查看账户明细</a>
+	</li>
+	</ul>
+	
+</div>
+
+</div>
+<div class="foot"></div>
+   
+</body>
+</html>

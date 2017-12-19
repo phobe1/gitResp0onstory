@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<link href="/static/css/public.css" th:href="@{/static/css/public.css}" rel="stylesheet" />
+<link href="/static/css/main.css" th:href="@{/static/css/main.css}" rel="stylesheet" />
+<link rel="stylesheet" id='skin' type="text/css" th:href="@{/static/alertframe/skin/simple_gray/ymPrompt.css}"
+	href="/static/alertframe/skin/simple_gray/ymPrompt.css" />
+<link id='theme' rel='stylesheet' href='/static/humane/themes/original.css'  th:href="/static/humane/themes/original.css'"/>
+<!-- jQuery -->
+<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js" th:src="@{/static/js/jquery-1.7.2.min.js}"></script>
+<script type="text/javascript" src="/static/alertframe/ymPrompt.js" th:src="@{/static/alertframe/ymPrompt.js}"></script>
+<script type="text/javascript" src="/static/humane/humane.js" th:src="@{/static/humane/humane.js}"></script>
+<script type="text/javascript" src="/static/js/public.js" th:src="@{/static/js/public.js}"></script>
+<script type="text/javascript" src="/static/js/main.js" charset="UTF-8" th:src="@{/static/js/main.js}"></script>
+</head>
+<body>
+<div class="head">
+<ul>
+	<li><h2><!--  <img src="/imgs/logo.png" width="130px"/> --></h2></li>
+	<li class="headfunc">
+		<ul>
+			<li>欢迎您：<span th:text="${session.currentUser.userName}"></span>
+			<a class="modifypwd" id="modifypwdbtna">
+			修改密码
+			</a> <a href="/exit.action" th:href="@{/exit.action}">退出</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+</body>
+</html>

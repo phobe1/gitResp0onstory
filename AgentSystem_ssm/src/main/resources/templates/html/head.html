@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+
+</head>
+<body>
+<div th:fragment="headcopy">
+<div class="head" >
+<link href="/static/css/public.css" th:href="@{/static/css/public.css}" rel="stylesheet" />
+<link href="/static/css/main.css" th:href="@{/static/css/main.css}" rel="stylesheet" />
+<link rel="stylesheet" id='skin' type="text/css" th:href="@{/static/alertframe/skin/simple_gray/ymPrompt.css}"
+	href="/static/alertframe/skin/simple_gray/ymPrompt.css" />
+<link id='theme' rel='stylesheet' href='/static/humane/themes/original.css'  th:href="@{/static/humane/themes/original.css}"/>
+<!-- jQuery -->
+<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js" th:src="@{/static/js/jquery-1.7.2.min.js}"></script>
+<script type="text/javascript" src="/static/alertframe/ymPrompt.js" th:src="@{/static/alertframe/ymPrompt.js}"></script>
+<script type="text/javascript" src="/static/humane/humane.js" th:src="@{/static/humane/humane.js}"></script>
+<script type="text/javascript" src="/static/js/public.js" th:src="@{/static/js/public.js}"></script>
+<script type="text/javascript" src="/static/js/main.js" charset="UTF-8" th:src="@{/static/js/main.js}"></script>
+
+<ul>
+	<li><h2><!--  <img src="/imgs/logo.png" width="130px"/> --></h2></li>
+	<li class="headfunc">
+		<ul>
+			<li>欢迎您：<span th:text="${session.currentUser.userName}"></span>
+			<a class="modifypwd" id="modifypwdbtna">
+			修改密码
+			</a> <a href="/exit.action" th:href="@{/exit.action}">退出</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+<div id="menu">
+		<ul>
+		<s:iterator value="roleFunctions" status="sta">
+			<s:if test="#sta.index == 0">
+			<li class="m_line"><img src="/imgs/line1.gif" /></li>
+			<li id="m_<s:property value="#sta.index + 1"/>" class='m_li_a' onmouseover='mover(<s:property value="#sta.index + 1"/>);'><a href="<s:property value="mainFunction.funcUrl"/>"><s:property value="mainFunction.functionName"/></a></li>
+			</s:if><s:else>
+			<li class="m_line"><img src="/imgs/line1.gif" /></li>
+			<li id="m_<s:property value="#sta.index + 1"/>" class='m_li' onmouseover='mover(<s:property value="#sta.index + 1"/>);'><a href="<s:property value="mainFunction.funcUrl"/>"><s:property value="mainFunction.functionName"/></a></li>
+			</s:else>
+		</s:iterator>
+	</ul>
+	</div><!--menu end-->
+
+
+
+	<div class="subbox">
+		<ul class="smenu">
+		
+			<s:iterator value="roleFunctions" status="sta">
+				<s:if test="subFunctions != null && subFunctions.size()>0">
+					<s:if test="#sta.index == 0">
+					<li style="padding-left:10px;" id="s_1" class='s_li_a'>
+					<s:iterator value="subFunctions">
+						<a href="<s:property value="funcUrl"/>"><s:property value="functionName"/></a>
+					</s:iterator>
+					</li>
+					</s:if><s:elseif test="#sta.index == 1">
+					<li style="padding-left:131px;" id="s_2" class='s_li' onmouseover='mover(2);'>
+						<s:iterator value="subFunctions">
+						<a href="<s:property value="funcUrl"/>"><s:property value="functionName"/></a>
+						</s:iterator>
+					</li>
+					</s:elseif><s:elseif test="#sta.index == 2">
+					<li style="padding-left:243px;" id="s_3" class='s_li' onmouseover='mover(3);'>
+						<s:iterator value="subFunctions">
+						<a href="<s:property value="funcUrl"/>"><s:property value="functionName"/></a>
+						</s:iterator>
+					</li>
+					</s:elseif><s:elseif test="#sta.index == 3">
+					<li style="padding-left:140px;" id="s_4" class='s_li' onmouseover='mover(4);'>
+						<s:iterator value="subFunctions">
+						<a href="<s:property value="funcUrl"/>"><s:property value="functionName"/></a>
+						</s:iterator>
+					</li>
+					</s:elseif><s:elseif test="#sta.index == 4">
+					<li style="padding-left:220px;" id="s_5" class='s_li' onmouseover='mover(5);'>
+						<s:iterator value="subFunctions">
+						<a href="<s:property value="funcUrl"/>"><s:property value="functionName"/></a>
+						</s:iterator>
+					</li>
+					</s:elseif>
+				</s:if><s:else>
+					<s:if test="#sta.index == 0">
+						<li style="padding-left:10px;" id="s_1" class='s_li_a'>
+					</s:if><s:elseif test="#sta.index == 1">
+						<li style="padding-left:131px;" id="s_2" class='s_li' onmouseover='mover(2);'>
+					</s:elseif><s:elseif test="#sta.index == 2">
+					<li style="padding-left:243px;" id="s_3" class='s_li' onmouseover='mover(3);'>
+					</s:elseif><s:elseif test="#sta.index == 3">
+					<li style="padding-left:360px;" id="s_4" class='s_li' onmouseover='mover(4);'>
+					</s:elseif><s:elseif test="#sta.index == 4">
+					<li style="padding-left:460px;" id="s_5" class='s_li' onmouseover='mover(5);'>
+					</s:elseif>
+						<a href="/main.action"  title="无权限">无权限</a>
+					</li>
+				</s:else>
+			</s:iterator>	
+</ul>
+	</div>
+
+
+  <!--  <tr th:unless="${#lists.isEmpty(funcList)}">
+      <td th:each="fun : ${funcList}" th:text="${fun.functionName}"></td>
+   </tr> -->
+   
+
+</div>
+</body>
+</html>

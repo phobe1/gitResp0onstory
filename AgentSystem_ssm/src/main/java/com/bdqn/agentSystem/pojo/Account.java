@@ -43,5 +43,12 @@ public class Account extends Base {
 	public void setMoneyBak(BigDecimal moneyBak) {
 		this.moneyBak = moneyBak;
 	}
+	@Override
+	public String toString() {
+		return "Account [userId=" + userId + ", money=" + money + ", moneyBak=" + moneyBak + ", userName=" + userName
+				+ "]";
+	}
+	
+	
 	
 }

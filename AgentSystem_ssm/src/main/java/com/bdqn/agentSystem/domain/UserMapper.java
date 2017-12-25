@@ -10,12 +10,12 @@ import com.bdqn.agentSystem.pojo.User;
 
 @Mapper
 @Repository
-public interface UserMappper {
-	@Select("select * from as_user where usercode =#{userCode} and userPassword = #{userPassword}")
+public interface UserMapper {
+//	@Select("select * from as_user where usercode =#{userCode} and userPassword = #{userPassword}")
 	public User login(User user);
 	
-	@Select("select count(*) from as_user where userCode = #{userCode}")
-	@ResultType(Integer.class)
+//	@Select("select count(*) from as_user where userCode = #{userCode}")
+//	@ResultType(Integer.class)
 	public int isExitLoginUser(User user);
 	
 	

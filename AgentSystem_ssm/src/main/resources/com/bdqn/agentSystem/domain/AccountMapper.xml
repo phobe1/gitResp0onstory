@@ -10,7 +10,7 @@
 	</select>
 	
 	<select id="getAccount" resultType="account" parameterType="account">
-		select * from as_account where userId = #{userId} and money = moneybak
+		select * from as_account where userId = #{userId} 
 	</select>
 	
 	<insert id="addAccount" parameterType="role" >

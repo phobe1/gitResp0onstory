@@ -5,14 +5,14 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bdqn.agentSystem.domain.UserMappper;
+import com.bdqn.agentSystem.domain.UserMapper;
 import com.bdqn.agentSystem.pojo.User;
 
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
 	@Resource
-	UserMappper userMapper;
+	UserMapper userMapper;
 	@Override
 	public User login(User user) {
 		return userMapper.login(user);

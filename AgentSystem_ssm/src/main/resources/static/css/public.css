@@ -67,7 +67,7 @@ h1{
 	height:120px;
 	width:1000px;
 	margin:0 auto;
-	background:url(../imgs/top_bg.gif) no-repeat;
+	background:url(/static/imgs/top_bg.gif) no-repeat;
 }
 .head  li ul{
 	height:auto;

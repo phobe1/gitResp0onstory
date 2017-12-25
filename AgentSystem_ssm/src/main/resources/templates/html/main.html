@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.com">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"></meta>
 <title>Insert title here</title>
-<script type="text/javascript">
-   $(document).ready(function(){ 
-	   $("#head").load("inc/head.html"); 
-	   $("#foot").load("inc/foot.html"); 
-	});
-
-</script>
+<link href="/static/css/public.css" th:href="@{/static/css/public.css}" rel="stylesheet" />
+<link href="/static/css/main.css" th:href="@{/static/css/main.css}" rel="stylesheet" />
+<link rel="stylesheet" id='skin' type="text/css" th:href="@{/static/alertframe/skin/simple_gray/ymPrompt.css}"
+	href="/static/alertframe/skin/simple_gray/ymPrompt.css" />
+<link id='theme' rel='stylesheet' href='/static/humane/themes/original.css'  th:href="@{/static/humane/themes/original.css}"/>
+<!-- jQuery -->
+<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js" th:src="@{/static/js/jquery-1.7.2.min.js}"></script>
+<script type="text/javascript" src="/static/alertframe/ymPrompt.js" th:src="@{/static/alertframe/ymPrompt.js}"></script>
+<script type="text/javascript" src="/static/humane/humane.js" th:src="@{/static/humane/humane.js}"></script>
+<script type="text/javascript" src="/static/js/public.js" th:src="@{/static/js/public.js}"></script>
+<script type="text/javascript" src="/static/js/main.js" charset="UTF-8" th:src="@{/static/js/main.js}"></script>
 </head>
 <body>
-  <div id="head"></div>
+  <div id="head" th:include="head :: headcopy"></div>
   <div class="mbxnav">
 	<a href="/main.action" th:href="@{/main.action}">代理商管理</a> \ <a href="/main.action" th:href="@{/main.action}">当前账户信息</a>
 </div>
@@ -20,19 +24,19 @@
 
 <div class="userInfo">
 	<ul>
-		<li><b>您好，<span th:text="${session.currentUser.userName}"></span>!</b> 您上次登录时间 <span th:text="${#dates.format(currentUser.lastLoginTime, 'yyyy-MM-dd HH:mm:ss')}"></span></li>
+		<li><b>您好，<span th:text="${session.currentUser.userName}"></span>!</b> 您上次登录时间  <span th:text="${#dates.format(session.currentUser.lastLoginTime, 'yyyy-MM-dd HH:mm:ss')}"></span></li>
 		<li>
 		您当前账户余额：
-		<span th:if="${#strings.isEmpty(account)}">对不起，您还没有开启账户，或者您的账户的资金出现了问题，请联系系统管理员进行处理。</span>
-		<span th:unless="${#strings.isEmpty(account)}" th:text="${'¥'+account.money}"></span>
-	<a href="/accountdetail.action" th:href="${/accountdetail.action}">查看账户明细</a>
+		<span th:if="${account == null}">对不起，您还没有开启账户，或者您的账户的资金出现了问题，请联系系统管理员进行处理。</span>
+		<span th:if="${account != null}" th:text="${account.money}"></span>
+	<a href="/accountdetail.action" th:href="@{/accountdetail.action}">查看账户明细</a>
 	</li>
 	</ul>
 	
 </div>
 
 </div>
-<div class="foot"></div>
+<div class="foot" th:include="foot :: footcopy"></div>
    
 </body>
 </html>

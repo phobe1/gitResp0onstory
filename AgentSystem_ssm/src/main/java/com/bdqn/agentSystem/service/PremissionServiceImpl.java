@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.bdqn.agentSystem.domain.PremissionMapper;
 import com.bdqn.agentSystem.pojo.Premission;
 
-@Service("pressionService")
+@Service("premissionService")
 public class PremissionServiceImpl implements PremissionService {
 
 	@Resource

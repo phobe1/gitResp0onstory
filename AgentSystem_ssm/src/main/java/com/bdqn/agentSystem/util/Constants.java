@@ -1,38 +1,38 @@
-package com.bdqn.agentSystem.interceptors;
+package com.bdqn.agentSystem.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import org.springframework.context.ApplicationContext;
 
-import org.apache.ibatis.plugin.Intercepts;
-import org.apache.ibatis.plugin.Signature;
-import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import com.bdqn.agentSystem.pojo.Function;
-import com.bdqn.agentSystem.pojo.Premission;
-import com.bdqn.agentSystem.pojo.Role;
 import com.bdqn.agentSystem.pojo.RoleFunctions;
 import com.bdqn.agentSystem.pojo.SystemConfig;
 import com.bdqn.agentSystem.pojo.User;
-import com.bdqn.agentSystem.service.FunctionService;
-import com.bdqn.agentSystem.service.PremissionServiceImpl;
-import com.bdqn.agentSystem.service.RoleService;
-import com.bdqn.agentSystem.service.SystemConfigService;
-import com.bdqn.agentSystem.util.Constants;
 
-
-@Component("SysInit")
-public class SysInit extends HandlerInterceptorAdapter {
-
-	public static HashMap<Integer, ArrayList<RoleFunctions>> MENU = Constants.MENU;
-
+public class Constants {
+	public static ApplicationContext cxt;
+	public static final String SESSION_USER="currentUser";
 	
+	public static final Long DAYS_5 = 5*24*60*60*1000L;
+	
+	
+	
+	/***************用户操作信息-开始*****************/
+	public static String OPERATE_INFO_USER_LOGIN_SUCCESS = "用户进行登录操作成功";
+	public static String OPERATE_INFO_USER_LOGIN_FAILD = "用户进行登录操作失败";
+	public static String OPERATE_INFO_USER_LOGOUT_SUCCESS = "用户注销账号操作成功";
+	public static String OPERATE_INFO_USER_MODIFY_PASSWORD = "用户进行修改密码操作";
+	public static String OPERATE_INFO_USER_ACCESS_ACCOUNTDETAIL = "用户进行账户明细查询";
+	public static String OPERATE_INFO_USER_lIST_SEARCH = "用户进行代理商用户查询";
+	public static String OPERATE_INFO_USER_LOGLIST_SEARCH = "用户进行操作日志查询";
+	
+	
+	/***************用户操作信息-结束*****************/
+	
+	public static HashMap<Integer, ArrayList<RoleFunctions>> MENU = new HashMap<Integer, ArrayList<RoleFunctions>>();
+	
+	public static User user = new User();
 	public static List<SystemConfig> systemConfigList;
 	//账务类型列表 1
 	public static List<SystemConfig> accountConfigList = new ArrayList<SystemConfig>();
@@ -48,36 +48,9 @@ public class SysInit extends HandlerInterceptorAdapter {
 	public static List<SystemConfig> cardTypeConfigList = new ArrayList<SystemConfig>();
 	//优惠类型 7
 	public static List<SystemConfig> youhuiTypeConfigList = new ArrayList<SystemConfig>();
-	
-	
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		
-		HttpSession session = request.getSession();
-		
-//		SystemConfig sc = new SystemConfig();
-//		sc.setIsStart(1);
-//		systemConfigList = systemConfigService.getSystomConfigs(sc);
-//		configSystemData();
-		
-		List<RoleFunctions> roleFunctions = new ArrayList<RoleFunctions>();
-		Constants.user=(User)(request.getSession().getAttribute(Constants.SESSION_USER));
-		if (MENU != null && MENU.size() > 0) {
-			System.out.println("------------>Constants.user:"+Constants.user);
-			roleFunctions = Constants.MENU.get(Constants.user.getRoleId());
-			session.setAttribute("roleFunctions", roleFunctions);
-			return true;
-		} else {
-			session.setAttribute("menu", MENU);
-			return true;
-		}
-		
-	}
-	
-	
-public static void configSystemData(){
-		
+	//
+	public static void configSystemData(){
+		System.out.println("configSystemData");
 		accountConfigList.clear();
 		accountConfigList = null;
 		accountConfigList = new ArrayList<SystemConfig>();
@@ -103,7 +76,7 @@ public static void configSystemData(){
 		youhuiTypeConfigList.clear();
 		youhuiTypeConfigList = null;
 		youhuiTypeConfigList = new ArrayList<SystemConfig>();
-		
+		System.out.println("systemConfigList:"+systemConfigList);
 		for(SystemConfig sc : systemConfigList){
 			switch(sc.getConfigType()){
 			case 1:
@@ -131,5 +104,4 @@ public static void configSystemData(){
 			}
 		}
 	}
-
 }

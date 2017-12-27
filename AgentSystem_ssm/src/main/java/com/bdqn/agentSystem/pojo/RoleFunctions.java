@@ -18,6 +18,12 @@ public class RoleFunctions {
 	public void setSubFunctions(List<Function> subFunctions) {
 		this.subFunctions = subFunctions;
 	}
+	@Override
+	public String toString() {
+		return "RoleFunctions [mainFunction=" + mainFunction + ", subFunctions=" + subFunctions + "]";
+	}
+	
+	
 	
 	
 }

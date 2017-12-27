@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.bdqn.agentSystem.interceptors.SystemInit;
+
 @SpringBootApplication
 @EnableTransactionManagement // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
 public class AgentSystemSsmApplication {
@@ -17,6 +19,8 @@ public class AgentSystemSsmApplication {
     }
 	
 	public static void main(String[] args) {
-		SpringApplication.run(AgentSystemSsmApplication.class, args);
+		SpringApplication app = new SpringApplication(AgentSystemSsmApplication.class);  
+		app.addListeners(new SystemInit());
+		app.run(args);
 	}
 }

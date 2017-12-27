@@ -2,9 +2,12 @@ package com.bdqn.agentSystem.domain;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.bdqn.agentSystem.pojo.Role;
 
 
+@Mapper
 public interface RoleMapper {
 	
 		/**

@@ -48,12 +48,12 @@
 
 
 
-		<tr th:unless="${#lists.isEmpty(funcList)}">
-			<td th:each="fun : ${funcList}" th:text="${fun.functionName}"></td>
+		<tr th:unless="${#lists.isEmpty(session.funcList)}">
+			<td th:each="fun : ${session.funcList}" th:text="${fun.functionName}"></td>
 		</tr>
 		<div id="menu">
-			<ul th:unless="${#lists.isEmpty(roleFunctions)}">
-				<span th:each="role,roleStat:${roleFunctions}">
+			<ul th:unless="${#lists.isEmpty(session.roleFunctions)}">
+				<span th:each="role,roleStat:${session.roleFunctions}">
 					<li class="m_line"><img src="/static/imgs/line1.gif"
 						th:src="@{/static/imgs/line1.gif}" /></li>
 					<li th:if="${roleStat.index eq 0}" th:id="'m_'+(${roleStat.index}+1)"
@@ -74,8 +74,8 @@
 		</div>
 
 		<div class="subbox">
-			<ul class="smenu" th:unless="${#lists.isEmpty(roleFunctions)}">
-				<span th:each="role,roleStat:${roleFunctions}">
+			<ul class="smenu" th:unless="${#lists.isEmpty(session.roleFunctions)}">
+				<span th:each="role,roleStat:${session.roleFunctions}">
 				<!-- <span th:text="${not #lists.isEmpty(role.subFunctions)}"></span> -->
 					<span
 					th:if="${not #lists.isEmpty(role.subFunctions)} and ${#lists.size(role.subFunctions) >0}">

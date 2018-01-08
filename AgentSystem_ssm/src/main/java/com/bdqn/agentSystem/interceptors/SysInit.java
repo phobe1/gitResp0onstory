@@ -65,9 +65,15 @@ public class SysInit extends HandlerInterceptorAdapter {
 		Constants.user=(User)(request.getSession().getAttribute(Constants.SESSION_USER));
 		if (MENU != null && MENU.size() > 0) {
 			System.out.println("------------>Constants.user:"+Constants.user);
-			roleFunctions = Constants.MENU.get(Constants.user.getRoleId());
-			session.setAttribute("roleFunctions", roleFunctions);
-			return true;
+			if(Constants.user==null) {
+				response.sendRedirect("/");
+				return false;
+			}else {
+				roleFunctions = Constants.MENU.get(Constants.user.getRoleId());
+				session.setAttribute("roleFunctions", roleFunctions);
+				return true;
+			}
+			
 		} else {
 			session.setAttribute("menu", MENU);
 			return true;

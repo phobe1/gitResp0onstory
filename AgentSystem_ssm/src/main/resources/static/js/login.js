@@ -17,12 +17,13 @@ function validateLoginUserFunc(){
 			type: 'POST',
 			async:false,
 			data:{'userCode':usercode,'userPassword':userpassword},
-			dataType: 'html',
+			dataType: 'json',
 			timeout: 5000,
 			error: function(){
 				alert("error");
 			},
 			success: function(result){
+				console.log("----------------------->"+result);
 				if("noexitusercode" == result){
 					alert("对不起，登陆账号不存在！");
 				}else if("errorpwd" == result){

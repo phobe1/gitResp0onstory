@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.bdqn.agentSystem.pojo.Account;
 import com.bdqn.agentSystem.pojo.Function;
 import com.bdqn.agentSystem.pojo.Premission;
@@ -88,7 +89,7 @@ public class UserController {
 
 	@RequestMapping("validateLoginUser.action")
 	@ResponseBody
-	public String validateLoginUser(User user) {
+	public Object validateLoginUser(User user) {
 		String flag = "failed";
 		if (null != user && !"".equals(user.getUserCode())) {
 			try {
@@ -106,7 +107,7 @@ public class UserController {
 				e.printStackTrace();
 			}
 		}
-		return flag;
+		return JSON.toJSONString(flag);
 	}
 
 	@RequestMapping("/exit.action")
@@ -116,7 +117,7 @@ public class UserController {
 			user = (User) session.getAttribute("currentUser");
 			if (user != null && user.getId() > 0) {
 				// setLog(user,Constants.OPERATE_INFO_USER_LOGOUT_SUCCESS);
-				session.invalidate();
+//				session.invalidate();
 				session.removeAttribute("currentUser");
 				log.error("User logout : " + user.getUserCode() + " - " + user.getUserName());
 				user = null;

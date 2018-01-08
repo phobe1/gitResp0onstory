@@ -19,7 +19,10 @@ public class MD5 {
 		for (int i = 0; i < b.length; i++) {
 			resultSb.append(byteToHexString(b[i]));
 		}
+		System.out.println(resultSb.toString());
 		return resultSb.toString();
+		
+		
 	}
 
 	private static String byteToHexString(byte b) {
@@ -41,6 +44,14 @@ public class MD5 {
 		} catch (Exception ex) {
             ex.printStackTrace();
 		}
+		System.out.println(resultString);
 		return resultString;
+	}
+	
+	public static void main(String[] args) {
+		MD5 m = new MD5();
+		String pp = m.MD5Encode("12121212");
+		
+				 
 	}
 }

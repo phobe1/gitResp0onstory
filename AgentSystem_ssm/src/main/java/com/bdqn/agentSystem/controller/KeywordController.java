@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONArray;
 import com.bdqn.agentSystem.pojo.Account;
 import com.bdqn.agentSystem.pojo.Custom;
+import com.bdqn.agentSystem.pojo.Keywords;
 import com.bdqn.agentSystem.pojo.SystemConfig;
 import com.bdqn.agentSystem.pojo.User;
 import com.bdqn.agentSystem.service.AccountService;
@@ -89,5 +90,24 @@ public class KeywordController extends BaseController {
 //		this.getOut().write((JSONArray.fromObject(customList)).toString());
 //		this.closeOut(this.getOut());
 //	}
+	
+	@RequestMapping(value="valikey.action")
+	@ResponseBody
+	public Object validateKeyword(Keywords keywords) {
+		String result = "failed";
+//		try {
+//			Keywords kw = keywordsService.getKeywordsByKeyword(keywords);
+//			if(kw ==null){
+//				result ="success";
+//				kw = null;
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		this.getOut().write(result);
+//		this.closeOut(this.getOut());
+		return null;
+	}
 
 }

@@ -48,6 +48,7 @@ $().ready(function(){
 			$.post('/valikey.action',{'keywords.keywords':$("#keyword").val()},function(result){
 				if('success' == result){
 					var keyword = $("#keyword").val();
+					console.log("keyword--->"+keyword);
 					$.post('/submitkeyword.action',{p:serviceType+"-"+years,'keywords.keywords':keyword,'keywords.customId':userid,'keywords.customName':userName},function(result){
 						if("exception" == result){
 							humane.error("对不起，您提交的关键词出现异常，没有成功，请重试。");
